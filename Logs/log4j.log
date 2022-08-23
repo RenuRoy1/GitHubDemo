@@ -1,0 +1,11 @@
+2022-08-23 11:01:58 INFO  Log:18 - =====================================loginTest TEST START=========================================
+2022-08-23 11:01:58 INFO  Log:29 - User is going to clickon Signin
+2022-08-23 11:02:19 INFO  Log:18 - =====================================loginTest TEST START=========================================
+2022-08-23 11:02:19 INFO  Log:29 - User is going to clickon Signin
+2022-08-23 11:02:23 INFO  Log:29 - Enter Username and password
+2022-08-23 11:02:37 INFO  Log:18 - =====================================loginTest TEST START=========================================
+2022-08-23 11:02:37 INFO  Log:29 - User is going to clickon Signin
+2022-08-23 11:02:52 INFO  Log:29 - Enter Username and password
+2022-08-23 11:02:56 INFO  Log:29 - Verifying if user is able to login
+2022-08-23 11:02:56 INFO  Log:29 - Login is Success!!!
+2022-08-23 11:02:56 INFO  Log:22 - =====================================loginTest TEST END=========================================
