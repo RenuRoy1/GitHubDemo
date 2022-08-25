@@ -5,6 +5,7 @@ package com.mystore.testcases;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.mystore.base.BaseClass;
@@ -25,19 +26,20 @@ public class LoginPageTest extends BaseClass {
 	LoginPage loginPage;
 	HomePage homePage;
 	
-	@BeforeMethod
-	public void setup() {
-		initialization();
+	@Parameters("browsername")
+	@BeforeMethod(groups= {"smoke","sanity","regression"})
+	public void setup(String browsername) {
+		initialization(browsername);
 		
 	}
 
-	@AfterMethod
+	@AfterMethod(groups= {"smoke","sanity","regression"})
 	public void tearDown() {
 		driver.quit();
 	}
 	
 	
-	@Test
+	@Test(groups={"smoke","sanity"} )
 	public void loginTest() {
 		Log.startTestCase("loginTest");
 		indexPage = new IndexPage();

@@ -2,9 +2,12 @@
  * 
  */
 package com.mystore.utility;
+import java.io.File;
+import java.io.IOException;
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 /**
  * @author renu1
@@ -12,14 +15,22 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
  */
 public class ExtentManager {
 	
-	public static ExtentHtmlReporter htmlReporter;
+	public static ExtentSparkReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest test;
 	
 	public static void setExtent() {
 		//htmlReporter= new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/ExtentReport/"+"MyReport_"+BaseClass.getCurrentTime()+".html");
-		htmlReporter= new ExtentHtmlReporter(System.getProperty("user.dir")+"/test-output/ExtentReport/"+"MyReport.html");
-		htmlReporter.loadXMLConfig(System.getProperty("user.dir")+"/extent-config.xml");
+		htmlReporter= new ExtentSparkReporter(System.getProperty("user.dir")+"/test-output/ExtentReport/"+"MyReport.html");
+		
+		try {
+			File xmlFile = new File(System.getProperty("user.dir")+"/extent-config.xml");
+			htmlReporter.loadXMLConfig(xmlFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//htmlReporter.config().setDocumentTitle("Automation Test Report");
 		//htmlReporter.config().setReportName("OrangeHRM Test Automation Report");
 		//htmlReporter.config().setTheme(Theme.DARK);
@@ -29,7 +40,7 @@ public class ExtentManager {
 		
 		extent.setSystemInfo("HostName", "MyHost");
 		extent.setSystemInfo("ProjectName", "MyStoreProject");
-		extent.setSystemInfo("Tester", "Hitendra");
+		extent.setSystemInfo("Tester", "RenuRoy");
 		extent.setSystemInfo("OS", "Win10");
 		extent.setSystemInfo("Browser", "Chrome");
 	}

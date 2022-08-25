@@ -22,18 +22,20 @@ public class SearchResultPageTest extends BaseClass{
 	IndexPage indexPage;
 	SearchResultPage searchResultPage;
 	
-	@BeforeMethod
-	public void setup() {
-		initialization();
+	
+	@BeforeMethod(groups= {"smoke","sanity","regression"})
+	public void setup(String browsername) {
+		initialization(browsername);
 		
 	}
 
-	@AfterMethod
+	@AfterMethod(groups= {"smoke","sanity","regression"})
 	public void tearDown() {
 		driver.quit();
 	}
 	
-	@Test
+	
+	@Test(groups="sanity")
 	public void productAvailabilityTest() {
 		indexPage = new IndexPage();
 		searchResultPage = indexPage.searchProduct("tshirt");

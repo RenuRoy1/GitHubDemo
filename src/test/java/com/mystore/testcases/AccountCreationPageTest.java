@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.mystore.base.BaseClass;
@@ -24,20 +25,27 @@ public class AccountCreationPageTest extends BaseClass {
 	LoginPage loginPage;
 	AccountCreationPage accountCreationPage;
 	
-	@BeforeMethod
-	public void setup() {
-		initialization();
+//
+//	@BeforeMethod
+//	public void setup() {
+//		initialization();
+//		
+//	}
+	@Parameters("browsername")// imstead of geeting it from properties file. we can pass it through testng.xml file
+	@BeforeMethod(groups= {"smoke","sanity","regression"})
+	public void setup(String browsername) {
+		initialization(browsername);
 		
 	}
 
-	@AfterMethod
+	@AfterMethod(groups= {"smoke","sanity","regression"})
 	public void tearDown() {
 		driver.quit();
 	}
 	
 	
 	
-	@Test
+	@Test(groups="sanity")
 	public void validateCreateAcoountCreationPage() {
 		indexPage= new IndexPage();
 		loginPage = indexPage.clickOnSignIn();		

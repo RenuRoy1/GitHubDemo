@@ -24,8 +24,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 
 import com.mystore.utility.ExtentManager;
 
@@ -39,42 +41,67 @@ public class BaseClass {
 	//public static Duration duration = Duration.ofSeconds(20);
 	
 	
-	@BeforeSuite
+	@BeforeSuite(groups= {"smoke","sanity","regression"})
 	public void beforeSuite() {
 		ExtentManager.setExtent();
 		DOMConfigurator.configure("log4j.xml"); // this is reading .xml file  and understands how logging works for this project
 		
-	}
-	
-	@BeforeTest
-	public  void loadConfig() {
 		
-		prop = new Properties();
+		
+		
 		try {
-			FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Config.properties" );
-			prop.load(fis);
-			System.out.println("Driver : " + driver);
-			
-		}
-		catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
-		} 
-		catch (IOException e) {
-			
-			e.printStackTrace();
-		}
+			prop = new Properties();
+					FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Config.properties" );
+					prop.load(fis);
+					System.out.println("Driver : " + driver);
+					
+				}
+				catch (FileNotFoundException e) {
+					
+					e.printStackTrace();
+				} 
+				catch (IOException e) {
+					
+					e.printStackTrace();
+				}
 		
-		
-				
 	}
 	
-	
-	public static void initialization() {
+	@AfterSuite(groups= {"smoke","sanity","regression"})
+	public void afterSuite() {
+		ExtentManager.endReport();
+		
+	}
+//	
+//	@BeforeTest(groups= {"smoke","sanity","regression"})
+//	public  void loadConfig() {
+//		
+//		
+//		try {
+//	prop = new Properties();
+//			FileInputStream fis = new FileInputStream(System.getProperty("user.dir") + "\\Configuration\\Config.properties" );
+//			prop.load(fis);
+//			System.out.println("Driver : " + driver);
+//			
+//		}
+//		catch (FileNotFoundException e) {
+//			
+//			e.printStackTrace();
+//		} 
+//		catch (IOException e) {
+//			
+//			e.printStackTrace();
+//		}
+//		
+//		
+//				
+//	}
+//	
+	public static void initialization(String browserName) {
 		
 		//wait = new WebDriverWait(driver, Duration.ofSeconds(120,1));
 		//WebDriverManager.chromedriver().setup();
-		String browserName= prop.getProperty("browser");
+		//String browserName= prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -100,7 +127,7 @@ public class BaseClass {
 		
 	}
 	
-	public String screenShot(WebDriver driver, String filename) {
+	public static String screenShot(WebDriver driver, String filename) {
 		String dateName = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File source = takesScreenshot.getScreenshotAs(OutputType.FILE);

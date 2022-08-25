@@ -9,3 +9,15 @@
 2022-08-23 11:02:56 INFO  Log:29 - Verifying if user is able to login
 2022-08-23 11:02:56 INFO  Log:29 - Login is Success!!!
 2022-08-23 11:02:56 INFO  Log:22 - =====================================loginTest TEST END=========================================
+2022-08-24 15:42:16 INFO  Log:18 - =====================================loginTest TEST START=========================================
+2022-08-24 15:42:16 INFO  Log:29 - User is going to clickon Signin
+2022-08-24 15:42:27 INFO  Log:29 - Enter Username and password
+2022-08-24 15:42:40 INFO  Log:29 - Verifying if user is able to login
+2022-08-24 15:42:40 INFO  Log:29 - Login is Success!!!
+2022-08-24 15:42:40 INFO  Log:22 - =====================================loginTest TEST END=========================================
+2022-08-24 16:24:05 INFO  Log:18 - =====================================loginTest TEST START=========================================
+2022-08-24 16:24:06 INFO  Log:29 - User is going to clickon Signin
+2022-08-24 16:24:09 INFO  Log:29 - Enter Username and password
+2022-08-24 16:24:13 INFO  Log:29 - Verifying if user is able to login
+2022-08-24 16:24:13 INFO  Log:29 - Login is Success!!!
+2022-08-24 16:24:13 INFO  Log:22 - =====================================loginTest TEST END=========================================
