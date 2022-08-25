@@ -141,7 +141,8 @@ public class BaseClass {
 		// This new path for jenkins
 		String newImageString = "http://localhost:8082/job/MyStoreProject/ws/MyStoreProject/ScreenShots/" + filename + "_"
 				+ dateName + ".png";
-		return newImageString;
+		//return newImageString;
+		return destination;
 	}
  
 //	public static void expWait(String s) {

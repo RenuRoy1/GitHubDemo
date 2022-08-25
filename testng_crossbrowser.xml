@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Crossbrowser"  parallel ="tests" thread-count="3"> <!-- thread count we needed to give if we want parallel testing otherwise it wont run -->
+<suite name="Crossbrowser">
   <test name="ChromeTest">
   <parameter name="browsername" value="chrome"></parameter> 
     <classes>

@@ -56,7 +56,8 @@ public class HomePageTest extends BaseClass{
 			loginPage = indexPage.clickOnSignIn();
 			homePage=loginPage.login(prop.getProperty("username"), prop.getProperty("Password"));
 			WebElement orderHistory =homePage.validateOrderHistory();
-			Assert.assertTrue(orderHistory.isDisplayed());
+			//Assert.assertTrue(orderHistory.isDisplayed());
+			Assert.assertTrue(false);
 			
 			
 		}
